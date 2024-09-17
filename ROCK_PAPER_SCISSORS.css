@@ -1,0 +1,40 @@
+#body {
+    width: 600px;
+    height: 200px;
+    margin: auto;
+    background-image: linear-gradient(to right, orange, white, green);
+    text-align: center;
+    padding-top: 25px;
+    border-radius: 20px;
+}
+
+img {
+    margin-left: 5px;
+    width: 150px;
+    height: 150px;
+    padding: auto;
+    border-radius: 20px;
+}
+
+button {
+    text-align: center;
+    border-radius: 20px;
+    border: 20px;
+
+}
+
+/* p {
+    position: inline;
+} */
+
+button:hover {
+    background-image: linear-gradient(to right, rgb(239, 241, 66), rgb(233, 67, 67), rgb(209, 233, 209));
+}
+
+#display{
+    margin-top: 40px;
+    text-align:center;
+    color: aliceblue;
+}body{
+    background-color: black;
+}
