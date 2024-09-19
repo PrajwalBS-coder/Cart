@@ -2,14 +2,16 @@
     width: 600px;
     height: 200px;
     margin: auto;
+    margin-top: 130px;
     background-image: linear-gradient(to right, orange, white, green);
     text-align: center;
     padding-top: 25px;
     border-radius: 20px;
+    align-items: center;
 }
 
 img {
-    margin-left: 5px;
+    
     width: 150px;
     height: 150px;
     padding: auto;
@@ -20,6 +22,7 @@ button {
     text-align: center;
     border-radius: 20px;
     border: 20px;
+    margin-right: 10px;
 
 }
 
@@ -36,5 +39,5 @@ button:hover {
     text-align:center;
     color: aliceblue;
 }body{
-    background-color: black;
+    background-color: rgb(143, 139, 139);
 }
