@@ -3,12 +3,14 @@ let paper = document.getElementById('paper')
 let scissors = document.getElementById('scissors')
 let result = document.getElementById('result')
 let result2 = document.getElementById('result2')
+let pop = document.getElementById('pop')
 let system = 0
 let rocky = 0
 let papery = 0
 let scissorsy = 0
 let systemwincount = 0
 let usercount = 0
+let op=``
 
 rock.addEventListener('click', () => {
     system = getRandomInt(3)
@@ -19,18 +21,38 @@ rock.addEventListener('click', () => {
         console.log("USER", usercount)
         winner = new Audio("ku.mp3")
         winner.play()
+        op += `<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>`
+        pop.innerHTML = op;
+
+
 
     }
     if (system === 0) {
 
-        winner = new Audio("drawn.mp3")
-        winner.play()
+        drawn = new Audio("drawn.mp3")
+        drawn.play()
     }
     if (system === 1) {
         systemwincount += 1
         console.log("SYSTEm", systemwincount)
-        winner = new Audio("lost this round.mp3")
-        winner.play()
+        systemwin = new Audio("lost this round.mp3")
+        systemwin.play()
     }
     result.textContent = usercount;
     result2.textContent = systemwincount;
