@@ -28,7 +28,7 @@ rock.addEventListener('click', () => {
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                         <img src="good tumbsup.webp" alt="">
+                         <img src="good tumbsup.webp" alt="" class="img-fluid">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -37,13 +37,30 @@ rock.addEventListener('click', () => {
                 </div>
             </div>
         </div>`;
-       
+
 
     }
     if (system === 0) {
 
         drawn = new Audio("drawn.mp3")
         drawn.play()
+        op += `<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                     <img src="tie.webp" alt="" style="text-align: center;" class="img-fluid">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>`;
     }
     if (system === 1) {
         systemwincount += 1
@@ -58,7 +75,7 @@ rock.addEventListener('click', () => {
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                         <img src="good tumbsdown.webp" alt="">
+                         <img src="good tumbsdown.webp" alt="" style="text-align: center;" class="center-block img-responsive">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -72,8 +89,8 @@ rock.addEventListener('click', () => {
     }
     result.textContent = usercount;
     result2.textContent = systemwincount;
-     pop.innerHTML = op;
-        op = ``
+    pop.innerHTML = op;
+    op = ``
 
 })
 
