@@ -37,7 +37,7 @@ rock.addEventListener('click', () => {
                 </div>
             </div>
         </div>`;
-
+        pop.innerHTML = op;
 
     }
     if (system === 0) {
@@ -61,6 +61,7 @@ rock.addEventListener('click', () => {
             </div>
         </div>
     </div>`;
+        pop.innerHTML = op;
     }
     if (system === 1) {
         systemwincount += 1
@@ -84,12 +85,12 @@ rock.addEventListener('click', () => {
                 </div>
             </div>
         </div>`;
-        // pop.innerHTML = op;
+        pop.innerHTML = op;
         // op = ``
     }
     result.textContent = usercount;
     result2.textContent = systemwincount;
-    pop.innerHTML = op;
+    // pop.innerHTML = op;
     op = ``
 
 })
