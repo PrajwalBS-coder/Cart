@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autoplay Audio</title>
+</head>
+<body>
+    <h1>Click the button to start the audio</h1>
+    <button id="playAudio">Play Audio</button>
+    <audio id="myAudio" src="drawn.mp3"></audio>
+
+    <script>
+        window.onload = function() {
+            const audioElement = document.getElementById('myAudio');
+            const playButton = document.getElementById('playAudio');
+
+            playButton.addEventListener('click', function() {
+                audioElement.play().then(() => {
+                    console.log("Audio is playing!");
+                }).catch(error => {
+                    console.error("Error playing the audio:", error);
+                });
+            });
+        };
+    </script>
+</body>
+</html>
