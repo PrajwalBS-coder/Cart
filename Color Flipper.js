@@ -14,3 +14,6 @@ function getRandomColor() {
     }
     return color;
 }
+setInterval(()=>{
+    bd.style.backgroundColor = getRandomColor()
+},4000)
