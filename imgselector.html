@@ -1,0 +1,48 @@
+{% extends 'main.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+    <title>Home Page</title>
+
+    {% endblock %}
+</head>
+
+<body>
+   
+
+    <form action="" method="post" enctype="multipart/form-data">
+
+        <label for="">Profile Picture</label>
+        <img src="{{profile.profile_pic.url}}" alt="Not Found" height="100px" width="100px" id="outputimg">
+        <input type="file" name="img" id="img"><br>
+        <input type="submit" value="Update" class="btn btn-primary">
+    </form>
+
+
+
+
+    <script>
+
+        const previewImage = () => {
+            const fileInput = document.getElementById('img');
+            const file = fileInput.files[0];
+            console.log(file)
+            const imgTag = document.getElementById('outputimg');
+
+            const reader = new FileReader();
+            reader.onload = () => {
+                imgTag.src = reader.result;
+                console.log("Done")
+            };
+            reader.readAsDataURL(file);
+        };
+
+        document.getElementById('img').addEventListener('change', previewImage);
+    </script>
+</body>
+
+</html>
