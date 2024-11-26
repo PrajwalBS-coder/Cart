@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let Platforms = []
     let UpTimerId
     let LowTimerId
+    let IsJumping = false
 
 
 
@@ -66,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function Jump() {
         clearInterval(LowTimerId)
+        IsJumping = true
         UpTimerId = setInterval(() => {
             doodlerBottomSpace += 20
             doodler.style.bottom = doodlerBottomSpace + 'px'
@@ -73,6 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 Fall()
             }
+
 
         }, 30)
 
@@ -82,12 +85,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function Fall() {
         clearInterval(UpTimerId)
+        IsJumping = false
         LowTimerId = setInterval(() => {
             doodlerBottomSpace -= 5
             doodler.style.bottom = doodlerBottomSpace + 'px'
-            if(doodlerBottomSpace<=0){
+            if (doodlerBottomSpace <= 0) {
                 GameOver()
             }
+            Platforms.forEach(platform => {
+                if (
+                    (doodlerBottomSpace >= platform.bottom) &&
+                    (doodlerBottomSpace <= platform.bottom + 15) &&
+                    ((doodlerLeftSpace + 60) >= platform.left) &&
+                    (doodlerLeftSpace <= (platform.left + 85)) &&
+                    !IsJumping
+                ) {
+                    console.log('Landed On Bar')
+                    Jump()//34min
+
+                }
+
+            })
+
 
 
         }, 30)
@@ -95,27 +114,39 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-//Game Over
+    //Game Over
 
-function GameOver(){
-    console.log("Game Over")
-    IsGameOver=true
-    clearInterval(UpTimerId)
-    clearInterval(LowTimerId)//28Min
+    function GameOver() {
+        console.log("Game Over")
+        IsGameOver = true
+        clearInterval(UpTimerId)
+        clearInterval(LowTimerId)
 
 
-}
+    }
+    //Control
+    function Control(e) {
+        if (e.key == "ArrowLeft") {
+            //left move function
+        }
+        else if (e.key == "ArrowRight") {
+            //right move function
+
+        }
+        else if (e.key == "ArrowUp") {
+            //up move function
+
+        }
+    }
 
 
 
     //Strating Doodler
-
-
-
     function start() {
         if (!IsGameOver) {
-            CreateDoodler()
+           
             CreatePlatforms()
+            CreateDoodler()
             setInterval(MovePlatForm, 30)
             Jump()
         }
